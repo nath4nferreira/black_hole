@@ -2,27 +2,23 @@
 
 Black hole simulation project
 
-Here is the black hole raw code, everything will be inside a src bin incase you want to copy the files
+Aqui está o código bruto do buraco negro, tudo ficará dentro de src e bin, caso você queira copiar os arquivos.
 
-I'm writing this as I'm beginning this project (hopefully I complete it ;D) here is what I plan to do:
+Estou escrevendo isto enquanto começo o projeto (espero concluí-lo ;D). Eis o que pretendo fazer:
 
-1. Ray-tracing : add ray tracing to the gravity simulation to simulate gravitational lensing
+1. Ray tracing: adicionar ray tracing à simulação gravitacional para simular lente gravitacional.
 
-2. Accretion disk : simulate accreciate disk using the ray tracing + the halos
+2. Disco de acreção: simular o disco de acreção usando ray tracing + halos.
 
-3. Spacetime curvature : demonstrate visually the "trapdoor in spacetime" that is black holes using spacetime grid
+3. Curvatura do espaço-tempo: demonstrar visualmente o "alçapão no espaço-tempo" que são os buracos negros, usando uma grade (grid) do espaço-tempo.
 
-4. [optional] try to make it run realtime ;D
+[opcional] tentar fazer rodar em tempo real ;D
 
-I hope it works :/
+Espero que funcione :/
 
-Edit: After completion of project -
+## **Requisitos para compilação:**
 
-Thank you everyone for checking out the video, if you haven't it explains code in detail: https://www.youtube.com/watch?v=8-B6ryuBkCM
-
-## **Building Requirements:**
-
-1. C++ Compiler supporting C++ 17 or newer
+1. Compilador C++ compatível com C++17 ou superior
 
 2. [Cmake](https://cmake.org/)
 
@@ -30,32 +26,31 @@ Thank you everyone for checking out the video, if you haven't it explains code i
 
 4. [Git](https://git-scm.com/)
 
-## **Build Instructions:**
+## **Instruções de build**
 
-1. Clone the repository:
+1. Clone o repositório:
 	-  `git clone https://github.com/kavan010/black_hole.git`
-2. CD into the newly cloned directory
+2. CD no diretório recém-clonado:
 	- `cd ./black_hole` 
-3. Install dependencies with Vcpkg
+3. Instale as dependências com o vcpkg:
 	- `vcpkg install`
-4. Get the vcpkg cmake toolchain file path
+4. Obtenha o caminho do arquivo de toolchain do vcpkg para CMake:
 	- `vcpkg integrate install`
-	- This will output something like : `CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake"`
-5. Create a build directory
+	- Isto exibirá algo como : `CMake projects should use: "-DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake"`
+5. Crie um diretório de build:
 	- `mkdir build`
-6. Configure project with CMake
+6. Configure o projeto com o CMake:
 	-  `cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake`
-	- Use the vcpkg cmake toolchain path from above
-7. Build the project
+	-  Use o caminho do toolchain do vcpkg obtido acima
+7. Compile o projeto:
 	- `cmake --build build`
-8. Run the program
-	- The executables will be located in the build folder
+8. Execute o programa
+	- os executáveis estarão na pasta build.
 
-## **How the code works:**
-for 2D: simple, just run 2D_lensing.cpp with the nessesary dependencies installed.
+## **Como o código funciona:**
 
-for 3D: black_hole.cpp and geodesic.comp work together to run the simuation faster using GPU, essentially it sends over a UBO and geodesic.comp runs heavy calculations using that data.
+2D: simples — basta executar/compilar 2D_lensing.cpp com as dependências necessárias instaladas.
 
-should work with nessesary dependencies installed, however I have only run it on windows with my GPU so am not sure!
+3D: black_hole.cpp e geodesic.comp trabalham em conjunto para acelerar a simulação usando GPU: essencialmente é enviado um UBO e o geodesic.comp realiza os cálculos pesados com esses dados.
 
-LMK if you would like an in-depth explanation of how the code works aswell :)
+Deve funcionar com as dependências necessárias instaladas, entretanto, eu só testei no Windows com a minha GPU, então não tenho certeza sobre outras plataformas/GPUs.
